@@ -1,4 +1,5 @@
-package project2;
+package main;
+
 
 public class Student {
     private final String studentName;

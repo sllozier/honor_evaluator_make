@@ -1,4 +1,4 @@
-package project2;
+package main;
 
 public class Undergraduate extends Student {
     private final String studentYear;

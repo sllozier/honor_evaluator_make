@@ -1,4 +1,4 @@
-package project2;
+package main;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,7 +11,8 @@ public class Project2 {
     private static double totalGpa = 0.0;
 
     public static void main(String[] args) {
-        String filePath = "secondProject/target/generated-sources/students.txt";
+        String filePath = "./docs/students.txt";
+
         // Read students from the file
         readStudentsFromFile(filePath);
 
@@ -97,13 +98,27 @@ public class Project2 {
         students.add(student);
     }
 
+    // Method to get the list of eligible students
+    // Added to help with testing
+    public static List<Student> getEligibleStudents() {
+        List<Student> eligibleStudents = new ArrayList<>();
+        for (Student student : students) {
+            if (student.eligibleForHonorSociety()) {
+                eligibleStudents.add(student);
+            }
+        }
+        return eligibleStudents;
+    }
+
     // Method to display the report of eligible students
     public static void displayEligibleStudentsReport() {
         System.out.println("Eligible Students:\n");
-        for (Student student : students) {
-            if (student.eligibleForHonorSociety()) {
-                System.out.println(student.getName());
-            }
+
+        List<Student> eligibleStudents = getEligibleStudents();
+
+        for (Student student : eligibleStudents) {
+            System.out.println(student.getName());
         }
     }
+
 }

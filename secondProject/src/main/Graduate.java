@@ -1,6 +1,6 @@
-package project2;
+package main;
 
-class Graduate extends Student {
+public class Graduate extends Student {
     private final String degreeSought;
 
     public Graduate(String studentName, int creditHours, int qualityPoints, String degreeSought) {
