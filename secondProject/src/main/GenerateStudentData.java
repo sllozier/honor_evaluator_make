@@ -1,5 +1,20 @@
 package main;
 
+/**
+ * Name: Sarah L. Lozier
+ * Class: CMSC 215 - 6380
+ * Project: Project 2
+ * Date: February 6th, 2024
+ * Description: The GenerateStudentData class is designed to automate the creation and
+ * initialization of student data for runnint the program. It generates a predefined list of
+ * student records, including both undergraduate and graduate students with varying
+ * credit hours, quality points, and academic status or degree sought. This utility class
+ * aids in populating the student management system with initial data, facilitating the
+ * demonstration and testing of the system's functionality to handle, calculate, and
+ * evaluate student GPA and honor society eligibility criteria. The generated data can
+ * be directly used by the Project2 class to assess the system's operational capabilities.
+ */
+
 import java.net.MalformedURLException;
 import java.io.File;
 import java.io.FileWriter;
@@ -62,8 +77,7 @@ public class GenerateStudentData {
             // Create a URL object to access the uinames.com API
             // URL is a Java class used to represent and manipulate Uniform Resource
             // Locators (URLs)
-            URL url = new URL("https://randomuser.me/api/?nat=us,gb,au"); // API to generate names
-            // (https://github.com/thm/uinames)
+            URL url = new URL("https://randomuser.me/api/?nat=us,gb,au"); // randomuser.me API to get names
 
             // Open a connection to the URL
             // HttpURLConnection is a Java class for making HTTP requests and handling HTTP
@@ -113,7 +127,7 @@ public class GenerateStudentData {
         // Example usage:
         // Generate student data and save it to a text file named "students.txt" with
         // 100 students
-        // Get the directory of the running JAR file or the root project directory
+        // Get the root project directory
         String basePath = new File("").getAbsolutePath();
 
         // Define the path to the target/generated-sources directory

@@ -1,5 +1,20 @@
 package test;
 
+/**
+ * Name: Sarah L. Lozier
+ * Class: CMSC 215 - 6380
+ * Project: Project 2
+ * Date: February 6th, 2024
+ * Description: The GenerateStudentTestData class is designed to automate the creation and
+ * initialization of student test data for testing purposes. It generates a predefined list of
+ * student records, including both undergraduate and graduate students with varying
+ * credit hours, quality points, and academic status or degree sought. This utility class
+ * aids in populating the student management system with initial data, facilitating the
+ * demonstration and testing of the system's functionality to handle, calculate, and
+ * evaluate student GPA and honor society eligibility criteria. The generated data can
+ * be directly used by the Project2Test class to assess the system's operational capabilities.
+ */
+
 import java.net.MalformedURLException;
 import java.io.File;
 import java.io.FileWriter;

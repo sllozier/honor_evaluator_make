@@ -1,5 +1,21 @@
 package test;
 
+/**
+ * Name: Sarah L. Lozier
+ * Class: CMSC 215 - 6380
+ * Project: Project 2
+ * Date: February 6th, 2024
+ * Description: TestRunner.java is a utility class designed to systematically
+ * execute and report
+ * on a series of unit tests covering the functionality of the Student,
+ * Undergraduate,
+ * Graduate, and Project2 classes. It assesses various aspects such as object
+ * creation, GPA calculation,
+ * honor society eligibility, and string representations, providing a structured
+ * and
+ * automated approach to validating the system's correctness and robustness.
+ */
+
 public class TestRunner {
     // ANSI escape codes for text colors
     private static final String ANSI_RESET = "\u001B[0m";
@@ -7,6 +23,7 @@ public class TestRunner {
     private static final String ANSI_RED = "\u001B[31m";
 
     public static void main(String[] args) {
+        // Header for the test output
         System.out.println("-------------------------------------------------------");
         System.out.println(" T E S T S");
         System.out.println("-------------------------------------------------------");
@@ -18,12 +35,15 @@ public class TestRunner {
         runGraduateTest();
         runProject2Test();
 
+        // Footer to indicate completion
         System.out.println("\nAll tests completed.");
     }
 
+    // Executes and reports on Student class tests
     private static void runStudentTest() {
         System.out.println("|+-- StudentTest");
 
+        // Execute and display results for Student specific tests
         double executionTime1 = executeTest("testStudentCreation");
         double executionTime2 = executeTest("testGpaCalculation");
         double executionTime3 = executeTest("testEligibilityForHonorSociety");
@@ -31,18 +51,21 @@ public class TestRunner {
         boolean result2 = StudentTest.testGpaCalculation();
         boolean result3 = StudentTest.testEligibilityForHonorSociety();
 
+        // Report on each test's execution time and result
         System.out.println("|");
 
-        // Display execution times
+        // Calculate and display execution times
         displayExecutionTime("testStudentCreation", executionTime1, result1);
         displayExecutionTime("testGpaCalculation", executionTime2, result2);
         displayExecutionTime("testEligibilityForHonorSociety", executionTime3, result3);
         System.out.println("|");
     }
 
+    // Executes and reports on Undergraduate class tests
     private static void runUndergraduateTest() {
         System.out.println("|+-- UndergraduateTest");
 
+        // Execute and display results for Undergraduate specific tests
         double executionTime1 = executeTest("testCreateUndergraduateAndGetYear");
         double executionTime2 = executeTest("testEligibilityForHonorSocietyU");
         double executionTime3 = executeTest("testToString");
@@ -50,6 +73,7 @@ public class TestRunner {
         boolean result2 = UndergraduateTest.testEligibilityForHonorSocietyU();
         boolean result3 = UndergraduateTest.testToString();
 
+        // Report on each test's execution time and result
         System.out.println("|");
 
         // Calculate and display execution times
@@ -59,9 +83,11 @@ public class TestRunner {
         System.out.println("|");
     }
 
+    // Executes and reports on Graduate class tests
     private static void runGraduateTest() {
         System.out.println("|+-- GraduateTest");
 
+        // Execute and display results for Graduate specific tests
         double executionTime1 = executeTest("testCreateGraduateAndGetDegree");
         double executionTime2 = executeTest("testEligibilityForHonorSocietyG");
         double executionTime3 = executeTest("testToStringG");
@@ -69,18 +95,21 @@ public class TestRunner {
         boolean result2 = GraduateTest.testEligibilityForHonorSocietyG();
         boolean result3 = GraduateTest.testToStringG();
 
+        // Report on each test's execution time and result
         System.out.println("|");
 
-        // Display execution times
+        // Calculate and display execution times
         displayExecutionTime("testCreateGraduateAndGetDegree", executionTime1, result1);
         displayExecutionTime("testEligibilityForHonorSocietyG", executionTime2, result2);
         displayExecutionTime("testToStringG", executionTime3, result3);
         System.out.println("|");
     }
 
+    // Executes and reports on Project2 class tests
     private static void runProject2Test() {
         System.out.println("|+-- Project2Test");
 
+        // Execute and display results for Project2 functionality tests
         double executionTime1 = executeTest("testReadStudentsFromFile");
         double executionTime2 = executeTest("testComputeAverageGpa");
         double executionTime3 = executeTest("testSetAndDisplayGpaThreshold");
@@ -90,9 +119,10 @@ public class TestRunner {
         boolean result3 = Project2Test.testSetAndDisplayGpaThreshold();
         boolean result4 = Project2Test.testDisplayEligibleStudentsReport();
 
+        // Report on each test's execution time and result
         System.out.println("|");
 
-        // Display execution times
+        // Calculate and display execution times
         displayExecutionTime("testReadStudentsFromFile", executionTime1, result1);
         displayExecutionTime("testComputeAverageGpa", executionTime2, result2);
         displayExecutionTime("testSetAndDisplayGpaThreshold", executionTime3, result3);
@@ -101,7 +131,8 @@ public class TestRunner {
     }
 
     private static double executeTest(String testName) {
-        long startTime = System.currentTimeMillis(); // Get the current time
+        // Record start time, execute test, then calculate duration
+        long startTime = System.currentTimeMillis();
         boolean result = false;
 
         // Execute the corresponding test method
@@ -147,11 +178,14 @@ public class TestRunner {
                 break;
         }
 
-        long endTime = System.currentTimeMillis(); // Get the current time after the test
-        double executionTime = (endTime - startTime) / 1000.0; // Calculate execution time in seconds
+        // Get the current time after the test
+        long endTime = System.currentTimeMillis();
+        // Calculate execution time in seconds
+        double executionTime = (endTime - startTime) / 1000.0;
         return executionTime;
     }
 
+    // Displays the execution time and result of a test
     private static void displayExecutionTime(String testName, double executionTime, boolean result) {
         if (executionTime >= 0) {
             String resultString = (result == true) ? ANSI_GREEN + "[OK]" : ANSI_RED + "[FAILED]";
@@ -160,79 +194,66 @@ public class TestRunner {
     }
 
     private static boolean testStudentCreation() {
-        // Your test logic for Student creation
         // Return true if the test passes, false otherwise
         return StudentTest.testStudentCreation();
     }
 
     private static boolean testGpaCalculation() {
-        // Your test logic for GPA calculation
         // Return true if the test passes, false otherwise
         return StudentTest.testGpaCalculation();
     }
 
     private static boolean testEligibilityForHonorSociety() {
-        // Your test logic for eligibility for honor society
         // Return true if the test passes, false otherwise
         return StudentTest.testEligibilityForHonorSociety();
     }
 
     private static boolean testCreateUndergraduateAndGetYear() {
-        // Your test logic for eligibility for honor society
         // Return true if the test passes, false otherwise
         return UndergraduateTest.testCreateUndergraduateAndGetYear();
     }
 
     private static boolean testEligibilityForHonorSocietyU() {
-        // Your test logic for eligibility for honor society
         // Return true if the test passes, false otherwise
         return UndergraduateTest.testEligibilityForHonorSocietyU();
     }
 
     private static boolean testToString() {
-        // Your test logic for eligibility for honor society
         // Return true if the test passes, false otherwise
         return UndergraduateTest.testToString();
     }
 
     private static boolean testCreateGraduateAndGetDegree() {
-        // Your test logic for eligibility for honor society
         // Return true if the test passes, false otherwise
         return GraduateTest.testCreateGraduateAndGetDegree();
     }
 
     private static boolean testEligibilityForHonorSocietyG() {
-        // Your test logic for eligibility for honor society
         // Return true if the test passes, false otherwise
         return GraduateTest.testEligibilityForHonorSocietyG();
     }
 
     private static boolean testToStringG() {
-        // Your test logic for eligibility for honor society
         // Return true if the test passes, false otherwise
         return GraduateTest.testToStringG();
     }
 
     private static boolean testReadStudentsFromFile() {
-        // Your test logic for eligibility for honor society
         // Return true if the test passes, false otherwise
         return Project2Test.testReadStudentsFromFile();
     }
 
     private static boolean testComputeAverageGpa() {
-        // Your test logic for Project2Test.testComputeAverageGpa()
         // Return true if the test passes, false otherwise
         return Project2Test.testComputeAverageGpa();
     }
 
     private static boolean testSetAndDisplayGpaThreshold() {
-        // Your test logic for Project2Test.testSetAndDisplayGpaThreshold()
         // Return true if the test passes, false otherwise
         return Project2Test.testSetAndDisplayGpaThreshold();
     }
 
     private static boolean testDisplayEligibleStudentsReport() {
-        // Your test logic for Project2Test.testDisplayEligibleStudentsReport()
         // Return true if the test passes, false otherwise
         return Project2Test.testDisplayEligibleStudentsReport();
     }
